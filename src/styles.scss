@@ -1,2 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-expansion-indicator::before {    
+    transform: rotate(-139deg)!important;    
+}
+
+.mat-expansion-indicator::after {    
+    transform: rotate(-44deg) !important; border-color: #00c0ff;   
+}
+.mat-expansion-panel-header{height:11vh !important;padding-top: 1% !important;}
+.mat-expansion-panel-body {
+    padding: 10px 24px 16px !important;
+    background: #ececec;
+    font-size: 10pt;
+    text-align: right;
+    opacity: 0.5;
+}
+.mat-expansion-panel-header-description{    justify-content: flex-end;}
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title{align-items: center;}
+.progress-loader{
+    justify-content: center !important;
+    align-items: center !important;
+    height: 50vh !important;
+}
+.mat-progress-spinner {    
+    left: 50%;
+    top: 65%;
+}
+.serchCover .mat-form-field-flex{
+    align-items: flex-end;
+}
+.mat-expansion-panel-header-title .img-thumbnail{
+    margin-right: 2vw;
+}

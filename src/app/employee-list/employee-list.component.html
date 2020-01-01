@@ -1,26 +1,30 @@
 <div class="container">
-    <h1 class='text'>{{title}}</h1>
-      <div class="panel-group" id="accordion">
-          <div class="panel panel-default" *ngFor='let x of jsonData;index as i'>
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}">{{x.name}}</a>
-                  </h4>
-              </div>
-          <span *ngIf='x.status==true else notIn'>
-              <div id="collapse{{i}}" class="panel-collapse collapse in">
-                    <div class="panel-body form-control">{{x.username}}</div>
-                    <div class="panel-body form-control">{{x.email}}</div>
-
-              </div>
-          </span>
-          <ng-template #notIn>
-              <div id="collapse{{i}}" class="panel-collapse collapse">
-                    <textarea class="panel-body form-control">{{x.data}}</textarea>
-              </div>
-          </ng-template>
-          </div>
-      </div>
-    </div>
-    
-    
+    <div class="serchCover d-flex justify-content-between">
+            <mat-form-field>
+                    <mat-icon matPrefix>search</mat-icon>
+                    <input matInput [(ngModel)]="searchText" placeholder="Find by name" class="advancedSearchTextbox">
+                </mat-form-field>
+            <div>
+                <h4>{{jsonData.length}} People</h4>
+            </div>
+    </div>   
+    <mat-accordion id="mainPanel">
+        <mat-expansion-panel *ngFor="let x of jsonData | filter : searchText : 'name'">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span> <img [src]="x.emailHash" alt="" class="img-thumbnail Responsive image"></span>
+                    <span>
+                        <strong>
+                            <p class="m-0">{{x.name}}</p>
+                        </strong>
+                        <p class="text-muted">{{x.email}}</p>
+                    </span>
+                </mat-panel-title>
+                <mat-panel-description>
+                    Member
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            Adress: {{x.address.street}},{{x.address.suite}},{{x.address.city}},{{x.address.zipcode}}
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

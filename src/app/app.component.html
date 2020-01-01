@@ -1,28 +1,33 @@
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  
-  <span>Team Members</span>
-    
-  
-</div>
 <div class="main-wrapper col-12 p-0">
+  <div class="toolbar" role="banner">
+    <span>Team Members</span>
+
+
+  </div>
+
   <div class="content" role="main">
     <div class="listHolder">
-     <!-- Search form -->
+      <!-- Search form -->
 
-
-<app-employee-list [jsonData]=jsonData></app-employee-list>
+      <div class="progress-loader" [hidden]="!loading">
+        <mat-progress-spinner [mode]="'indeterminate'">
+        </mat-progress-spinner>
+      </div>
+      <div [hidden]="loading">
+      <app-employee-list [jsonData]=jsonData></app-employee-list>
+      </div>
     </div>
   </div>
 </div>
 
 
-  <!-- Footer -->
-  <!-- <footer>
+<!-- Footer -->
+<!-- <footer>
      
   </footer> -->
 
-  
+
 
 
 
